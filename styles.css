@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: hsl(94, 56%, 91%)
+}
+
+.container {
+    background: white;
+    height: 70vh;
+    width: 40%;
+    margin: 15vh 30% 0 30%;
+    border-radius: 1rem;
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.from-container {
+    background: rgba(0, 0, 0, 0);   
+    padding-top: 10vh;
+}
+
+.to-container {
+    background: rgba(0, 0, 0, 0);   
+    padding-top: 10vh;
+}
+
+
+.selection-title {
+    background: white;
+    color: black;
+    margin-left: 13.5%;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.selection {
+    background: white;
+    height: 5vh;
+    padding: 7px;
+    color: black;
+    border-style: solid;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 48%;
+    margin-left: 13%;
+}
+
+.to-container .selection {
+    margin-left: 19%;
+}
+
+.num-input {
+    margin-top: 10vh;
+    padding: 7px;
+    border-radius: 5px;
+    border-style: solid;
+    background: white;
+    width: 70%;
+    margin-left: 13.5%;
+    font-size: 18px;
+}
+
+.confirm {
+    width: 73%;
+    border-radius: 1rem;
+    margin-top: 10vh;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+    padding-top: 1.5vh;
+    box-shadow: 0px 4px 0px hsl(156, 30%, 53%);
+    height: 6vh;
+    background: hsl(155, 45%, 71%);
+    margin-left: 13.5%;
+    transition: 0.2s;
+}
+
+.confirm:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.overlay {
+    display: none;
+    line-height: 48px;
+    padding-top: 6vh;
+    font-size: 32px;
+    color: black;
+    padding-left: 10%;
+    position: absolute;
+    z-index: 2;
+    background: white;
+    flex-grow: 1;
+    min-height: 94vh;
+    width: 90%;
+    top: 0;
+    left: 0;
+}
+
+#back-btn {
+    position: absolute;
+    right: 10%;
+    margin-top: 200px;
+    height: 150px;
+    transition: 0.2s;
+}
+
+#back-btn:hover {
+    opacity: 0.5;
+}

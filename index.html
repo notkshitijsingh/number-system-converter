@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Number System Conversion</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="from-container">
+            <span class="selection-title">From:</span>
+            <select class="selection" id="from">
+                <option value="binary">Binary</option>
+                <option value="octal">Octal</option>
+                <option value="decimal">Decimal</option>
+                <option value="hexadecimal" selected>Hexadecimal</option>
+            </select>
+        </div>
+        <div class="to-container">
+            <span class="selection-title">To:</span>
+            <select class="selection" id="to">
+                <option value="binary">Binary</option>
+                <option value="octal">Octal</option>
+                <option value="decimal">Decimal</option>
+                <option value="hexadecimal" selected>Hexadecimal</option>
+            </select>
+        </div>
+        <div class="number">
+            <input id="number" class="num-input" placeholder="Enter the integer to convert">
+        </div>
+        <div class="confirm" id="cnf-btn">
+            Convert!
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <span id="steps"></span>
+        <img src="images/back.gif" alt="back" id="back-btn">
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
