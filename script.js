@@ -13,44 +13,48 @@ confirmButton.addEventListener('click', function() {
     from = fromSystem.value;
     to = toSystem.value;
     num = numberToChange.value;
-    if ( from === to ) {
-        steps.innerHTML = `The number remains the same, i.e., <br><b>${num}</b><br> since the "from" and "to" sections were the same.`
-    } else if ( to === 'decimal' ) {
-        if ( from === 'binary' ) {
-            radix = 2;
-        } else if ( from === 'octal' ) {
-            radix = 8;
-        } else if ( from === 'hexadecimal' ) {
-            radix = 16;
+    if (outOfRange(from, num)) {
+        errorWindow();
+    } else {
+        if ( from === to ) {
+            steps.innerHTML = `The number remains the same, i.e., <br><b>${num}</b><br> since the "from" and "to" sections were the same.`
+        } else if ( to === 'decimal' ) {
+            if ( from === 'binary' ) {
+                radix = 2;
+            } else if ( from === 'octal' ) {
+                radix = 8;
+            } else if ( from === 'hexadecimal' ) {
+                radix = 16;
+            }
+            toDecimal(num, radix);
+        } else if ( from === 'decimal') {
+            if ( to === 'binary' ) {
+                radix = 2;
+            } else if ( to === 'octal' ) {
+                radix = 8;
+            } else if ( to === 'hexadecimal' ) {
+                radix = 16;
+            }
+            fromDecimal(num, radix);
+        } else if ( from === 'binary' ) {
+            if ( to === 'octal' ) {
+                radix = 8;
+            } else if ( to === 'hexadecimal' ) {
+                radix = 16;
+            }
+            fromBinary(num, radix);
+        } else if ( to === 'binary' ) {
+            if ( from === 'octal' ) {
+                radix = 8;
+            } else if ( from === 'hexadecimal' ) {
+                radix = 16;
+            }
+            toBinary(num, radix);
+        } else if ( from === 'octal' && to === 'hexadecimal' ) {
+            octalToHexadecimal(num);
+        } else if ( to === 'octal' && from === 'hexadecimal' ) {
+            hexadecimalToOctal(num);
         }
-        toDecimal(num, radix);
-    } else if ( from === 'decimal') {
-        if ( to === 'binary' ) {
-            radix = 2;
-        } else if ( to === 'octal' ) {
-            radix = 8;
-        } else if ( to === 'hexadecimal' ) {
-            radix = 16;
-        }
-        fromDecimal(num, radix);
-    } else if ( from === 'binary' ) {
-        if ( to === 'octal' ) {
-            radix = 8;
-        } else if ( to === 'hexadecimal' ) {
-            radix = 16;
-        }
-        fromBinary(num, radix);
-    } else if ( to === 'binary' ) {
-        if ( from === 'octal' ) {
-            radix = 8;
-        } else if ( from === 'hexadecimal' ) {
-            radix = 16;
-        }
-        toBinary(num, radix);
-    } else if ( from === 'octal' && to === 'hexadecimal' ) {
-        octalToHexadecimal(num);
-    } else if ( to === 'octal' && from === 'hexadecimal' ) {
-        hexadecimalToOctal(num);
     }
 })
 backButton.addEventListener('click', function() {
@@ -424,5 +428,32 @@ function hexadecimalToOctal(x) {
     final = fromBinary(bin, 8);
 }
 function errorWindow() {
-    steps.innerHTML = steps.innerHTML + 'We have encountered an error.<br><br>Please go back and try again.';
+    steps.innerHTML = steps.innerHTML + 'We have encountered an error.<br><br>Please go back and try again.<br><br><b>Error: Out of Range</b>';
+}
+function outOfRange(f, x){
+    if ( f === 'binary' ) {
+        for ( let i = 0; i < x.length; i++ ) {
+            if ( x[i] > '2' ) {
+                return true;
+            }
+        }
+    } else if ( f === 'decimal' ) {
+        for ( let i = 0; i < x.length; i++ ) {
+            if ( x[i] > '10' ) {
+                return true;
+            }
+        }
+    } else if ( f === 'octal' ) {
+        for ( let i = 0; i < x.length; i++ ) {
+            if ( x[i] > '8' ) {
+                return true;
+            }
+        }
+    } else {
+        for ( let i = 0; i < x.length; i++ ) {
+            if ( !( x[i] in ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'] ) ) {
+                return true;
+            }
+        }
+    }
 }
