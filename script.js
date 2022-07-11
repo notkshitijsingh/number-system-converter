@@ -431,23 +431,5 @@ function errorWindow() {
     steps.innerHTML = steps.innerHTML + 'We have encountered an error.<br><br>Please go back and try again.<br><br><b>Error: Out of Range</b>';
 }
 function outOfRange(f, x){
-    if ( f === 'binary' ) {
-        for ( let i = 0; i < x.length; i++ ) {
-            if ( x[i] > '2' ) {
-                return true;
-            }
-        }
-    } else if ( f === 'decimal' ) {
-        for ( let i = 0; i < x.length; i++ ) {
-            if ( x[i] > '10' ) {
-                return true;
-            }
-        }
-    } else if ( f === 'octal' ) {
-        for ( let i = 0; i < x.length; i++ ) {
-            if ( x[i] > '8' ) {
-                return true;
-            }
-        }
-    }
+    return false;
 }
