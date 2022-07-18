@@ -4,3 +4,9 @@ This is a project for class CSA2003 on the topic of Number Systems. It gives the
 
 
 [Click Here to check out the project!](https://majestic-dodol-20bbd3.netlify.app/)
+
+# Screenshots
+![Image 1](https://imgur.com/wObXEop)
+
+
+![Image 2](https://imgur.com/pdF6DSd)
